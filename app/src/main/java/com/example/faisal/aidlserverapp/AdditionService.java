@@ -1,0 +1,31 @@
+package com.example.faisal.aidlserverapp;
+
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.os.RemoteException;
+
+/**
+ * Created by faisal on 12/14/2015.
+ */
+
+
+public class AdditionService extends Service {
+
+    public IBinder onBind(Intent intent) {
+        // TODO Auto-generated method stub
+        return mBinder;
+    }
+
+    /**
+     * IAdd definition is below
+     */
+
+    private final IAdd.Stub mBinder = new IAdd.Stub() {
+        @Override
+        public int add(int num1, int num2) throws RemoteException {
+            // TODO Auto-generated method stub
+            return (num1 + num2);
+        }
+    };
+}
